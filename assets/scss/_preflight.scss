@@ -56,5 +56,10 @@ button {
     left: viewportSize(6);
     top: viewportSize(32);
     z-index: 1;
+
+    svg {
+      width: viewportSize(59);
+      aspect-ratio: 1/1;
+    }
   }
 }
