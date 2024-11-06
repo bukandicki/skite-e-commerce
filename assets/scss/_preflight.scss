@@ -18,6 +18,15 @@
   box-sizing: border-box;
 }
 
+img,
+svg {
+  display: block;
+}
+
+svg {
+  vertical-align: middle;
+}
+
 .CustomerLayout {
   width: var(--viewport-width);
   min-height: var(--viewport-height);
