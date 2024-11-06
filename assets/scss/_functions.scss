@@ -14,5 +14,5 @@
 }
 
 @function getColor($value, $alpha: 1) {
-  @return rgba(var(--color-#{unquote($value)}), $alpha);
+  @return rgba(var(--color-#{$value}), $alpha);
 }

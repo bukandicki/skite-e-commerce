@@ -1,0 +1,70 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.ProjectCard {
+  width: 100%;
+  height: viewportSize(214);
+  position: relative;
+  overflow: hidden;
+  border-radius: viewportSize(10);
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__detail {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: viewportSize(40) viewportSize(9) viewportSize(9);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      getColor("celestial-blue") 100%
+    );
+
+    span,
+    strong,
+    p {
+      color: getColor("light");
+    }
+
+    span,
+    strong {
+      display: block;
+    }
+
+    span {
+      @include fontStyling("Roboto", 9);
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: viewportSize(6);
+        margin-right: viewportSize(5);
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        vertical-align: middle;
+        background-color: getColor("pastel-red");
+      }
+    }
+
+    strong {
+      @include fontStyling("Roboto", 23, 700);
+      letter-spacing: viewportSize(2);
+    }
+
+    p {
+      @include fontStyling("Roboto", 20);
+    }
+  }
+
+  &__detail[data-labeled="false"] {
+    p {
+      @include fontStyling("Roboto", 16);
+    }
+  }
+}

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     display: "swap",
     preload: true,
     families: {
-      Roboto: [400, 700],
+      Roboto: [400, 500, 700],
     },
   },
 
@@ -22,5 +22,5 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/google-fonts", "@nuxt/image"],
 });

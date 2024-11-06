@@ -1,0 +1,145 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.CheckoutPage {
+  padding: viewportSize(122) viewportSize(36) viewportSize(138);
+
+  &__summary {
+    overflow: hidden;
+    border-radius: viewportSize(10);
+    background-color: getColor("light");
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: viewportSize(35);
+    padding: viewportSize(15) 0;
+    background-color: getColor("medium-aquamarine");
+    border-radius: viewportSize(16);
+
+    svg {
+      width: viewportSize(34);
+      aspect-ratio: 1/1;
+      margin-right: viewportSize(11);
+    }
+
+    span {
+      @include fontStyling("Roboto", 15, 700);
+      letter-spacing: viewportSize(1);
+      color: getColor("light");
+    }
+  }
+}
+
+.Summary {
+  &__header,
+  &__footer {
+    background-color: getColor("vivid-cerulean");
+    color: getColor("light");
+  }
+
+  &__header {
+    @include fontStyling("Roboto", 25, 700);
+    padding: viewportSize(20) 0;
+    text-align: center;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__number {
+    @include fontStyling("Roboto", 12);
+    margin: viewportSize(15) viewportSize(17) viewportSize(22) 0;
+    text-align: right;
+    color: getColor("vivid-cerulean");
+  }
+
+  &__detail {
+    padding-left: viewportSize(14);
+    margin-bottom: viewportSize(31);
+  }
+
+  &__detail strong {
+    @include fontStyling("Roboto", 15, 700);
+  }
+
+  &__detail p {
+    @include fontStyling("Roboto", 13);
+    max-width: viewportSize(109);
+    color: getColor("black-space");
+  }
+
+  &__products {
+    li:not(:last-child) {
+      border-bottom: solid viewportSize(1) getColor("celestial-blue");
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      padding: viewportSize(12) viewportSize(21) viewportSize(4)
+        viewportSize(18);
+    }
+
+    span,
+    strong {
+      display: block;
+    }
+  }
+
+  &__product-img {
+    width: viewportSize(46);
+    height: viewportSize(50);
+  }
+
+  &__product-detail {
+    flex: 1;
+  }
+
+  &__product-detail strong {
+    @include fontStyling("Roboto", 14, 700);
+    color: getColor("cavernous");
+    margin-bottom: viewportSize(2);
+    letter-spacing: viewportSize(1);
+  }
+
+  &__product-detail span {
+    @include fontStyling("Roboto", 11);
+    color: getColor("vivid-cerulean");
+  }
+
+  &__product-price {
+    text-align: center;
+  }
+
+  &__product-price span {
+    @include fontStyling("Roboto", 11);
+    color: getColor("black-space");
+    letter-spacing: viewportSize(1);
+  }
+
+  &__product-price strong {
+    @include fontStyling("Roboto", 14, 700);
+    color: getColor("vivid-cerulean");
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: viewportSize(20) viewportSize(14) viewportSize(15);
+
+    span {
+      @include fontStyling("Roboto", 15, 700);
+      letter-spacing: viewportSize(1);
+    }
+
+    strong {
+      @include fontStyling("Roboto", 18, 700);
+    }
+  }
+}
