@@ -3,6 +3,10 @@ import ChevronLeft from "~/assets/icons/ChevronLeft.vue";
 
 const router = useRouter();
 const route = useRoute();
+
+const handleBack = () => {
+  router.options.history.state.back ? router.back() : navigateTo("/");
+};
 </script>
 
 <template>
@@ -10,7 +14,7 @@ const route = useRoute();
     <button
       v-if="route.name !== 'CustomerPage'"
       class="CustomerLayout__back"
-      @click="() => router.back()"
+      @click="handleBack"
     >
       <ChevronLeft />
     </button>
