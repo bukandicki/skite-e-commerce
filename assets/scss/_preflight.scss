@@ -1,6 +1,6 @@
-@use "_variables.scss" as *;
-@use "_functions.scss" as *;
-@use "_mixins.scss" as *;
+@use "variables.scss" as *;
+@use "functions.scss" as *;
+@use "mixins.scss" as *;
 
 :root {
   --viewport-width: 100vw;
@@ -9,6 +9,10 @@
 
   @each $key, $value in $colors {
     --color-#{$key}: #{extractRGB($value)};
+  }
+
+  @include desktop-screen {
+    --base-viewport-width: 1440;
   }
 }
 
