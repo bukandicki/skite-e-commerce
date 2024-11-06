@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     display: "swap",
     preload: true,
     families: {
-      Roboto: [400, 700],
+      Roboto: [400, 500, 700],
     },
   },
 
