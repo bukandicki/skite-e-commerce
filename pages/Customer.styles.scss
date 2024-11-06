@@ -1,0 +1,109 @@
+@use "~/assets/scss/_functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.CustomerPage {
+  padding: viewportSize(36);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    width: viewportSize(567);
+    height: viewportSize(404);
+    position: absolute;
+    left: 50%;
+    z-index: 0;
+    top: viewportSize(-100);
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: getColor("pastel-red");
+  }
+}
+
+.SectionTitle {
+  @include fontStyling("Roboto", 16, 700);
+  letter-spacing: viewportSize(1);
+  color: getColor("celestial-blue");
+  margin-bottom: viewportSize(12);
+}
+
+.Information {
+  margin-top: viewportSize(78);
+  margin-bottom: viewportSize(40);
+  position: relative;
+  z-index: 1;
+
+  &__name {
+    @include fontStyling("Roboto", 21, 500);
+    color: getColor("light");
+  }
+
+  &__card {
+    margin-top: viewportSize(16);
+  }
+}
+
+.InformationCard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: self-end;
+  justify-content: end;
+  height: viewportSize(167);
+  padding: viewportSize(16) viewportSize(17);
+  background-color: getColor("light");
+  background-image: linear-gradient(
+    -62deg,
+    getColor("chinese-white", 0) 0%,
+    getColor("water", 0.42) 100%
+  );
+  border-radius: viewportSize(10);
+  box-shadow: 0 viewportSize(4) viewportSize(4) 0 getColor("azureish");
+
+  p {
+    @include fontStyling("Roboto", 18);
+    color: getColor("black-space");
+    margin-bottom: viewportSize(4);
+    text-align: right;
+  }
+
+  h2 {
+    @include fontStyling("Roboto", 36, 700);
+    text-align: right;
+    color: getColor("vivid-cerulean");
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: viewportSize(139);
+    top: viewportSize(-50);
+    left: viewportSize(-50);
+    background-color: getColor("vivid-cerulean");
+  }
+
+  &::after {
+    width: viewportSize(29);
+    top: viewportSize(24);
+    left: viewportSize(100);
+    background-color: getColor("pastel-red");
+  }
+}
+
+.PreviousOrder {
+  margin-bottom: viewportSize(39);
+}
+
+.MostOrdered {
+  margin-bottom: viewportSize(48);
+}
+
+.LatestProduct {
+  margin-bottom: viewportSize(41);
+}

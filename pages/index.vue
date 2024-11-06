@@ -8,22 +8,22 @@ definePageMeta({
 </script>
 
 <template>
-  <main>
+  <main class="CustomerPage">
     <section class="Information">
       <h1 class="Information__name">Welcome, Jhon</h1>
 
       <div class="Information__card">
         <div class="InformationCard">
           <div class="InformationCard__detail">
-            <p></p>
-            <h2></h2>
+            <p>Your Balance</p>
+            <h2>$ 200.00</h2>
           </div>
         </div>
       </div>
     </section>
 
     <section class="PreviousOrder">
-      <h2>PREVIOUS ORDER</h2>
+      <h2 class="SectionTitle">PREVIOUS ORDER</h2>
 
       <div class="PreviousOrder__card">
         <NuxtImg
@@ -47,7 +47,7 @@ definePageMeta({
     </section>
 
     <section class="MostOrdered">
-      <h2>YOUR MOST ORDERED</h2>
+      <h2 class="SectionTitle">YOUR MOST ORDERED</h2>
 
       <div class="MostOrdered__card">
         <strong>Dry Cleaning</strong>
@@ -56,7 +56,7 @@ definePageMeta({
     </section>
 
     <section class="LatestProduct">
-      <h2>OUR LATEST PRODUCT</h2>
+      <h2 class="SectionTitle">OUR LATEST PRODUCT</h2>
 
       <div class="LatestProduct__slider">
         <div class="LatestProduct__card">
