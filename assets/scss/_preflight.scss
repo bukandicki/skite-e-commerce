@@ -1,3 +1,15 @@
+@use "_variables.scss" as *;
+@use "_functions.scss" as *;
+
+:root {
+  --viewport-width: 100vw;
+  --base-viewport-width: 1440;
+
+  @each $key, $value in $colors {
+    --color-#{$key}: #{extractRGB($value)};
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

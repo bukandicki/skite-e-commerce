@@ -1,0 +1,6 @@
+@use "sass:color";
+
+@function extractRGB($color) {
+  @return color.channel($color, "red", rgb), color.channel($color, "green", rgb),
+    color.channel($color, "blue", rgb);
+}
