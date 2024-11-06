@@ -32,7 +32,7 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
     <section class="PreviousOrder">
       <h2 class="SectionTitle">PREVIOUS ORDER</h2>
 
-      <div class="PreviousOrder__card">
+      <NuxtLink href="/checkout" class="PreviousOrder__card">
         <div class="Previous__detail">
           <NuxtImg
             class="Previous__img"
@@ -53,7 +53,7 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
           <Note />
           <span>INVOICE</span>
         </div>
-      </div>
+      </NuxtLink>
     </section>
 
     <section class="MostOrdered">
@@ -76,12 +76,14 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
         :slides-offset-after="slider_offset"
       >
         <SwiperSlide v-for="i in 6" :key="i">
-          <ProjectCard
-            img="/sample-2.png"
-            label="Dry Cleaning"
-            title="Jeans"
-            subtitle="$ 10.00/pc"
-          />
+          <NuxtLink href="/products/1">
+            <ProjectCard
+              img="/sample-2.png"
+              label="Dry Cleaning"
+              title="Jeans"
+              subtitle="$ 10.00/pc"
+            />
+          </NuxtLink>
         </SwiperSlide>
       </Swiper>
     </section>

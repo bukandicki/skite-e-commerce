@@ -6,5 +6,5 @@ definePageMeta({
 </script>
 
 <template>
-  <main></main>
+  <main class="CheckoutPage"></main>
 </template>
