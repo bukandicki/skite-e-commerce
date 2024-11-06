@@ -4,3 +4,7 @@
   @return color.channel($color, "red", rgb), color.channel($color, "green", rgb),
     color.channel($color, "blue", rgb);
 }
+
+@function getColor($value, $alpha: 1) {
+  @return rgba(var(--color-#{unquote($value)}), $alpha);
+}
