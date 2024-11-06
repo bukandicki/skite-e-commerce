@@ -1,5 +1,5 @@
-export default function (size: number) {
-  const result = useState<number>("size", () => 0);
+export default function (key: string, size: number) {
+  const result = useState<number>(key, () => 0);
 
   const handleUpdateSize = (screen_width?: number, base_size?: number) => {
     if (!screen_width || !base_size) return;
