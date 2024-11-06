@@ -53,10 +53,11 @@ definePageMeta({
     <section class="MostOrdered">
       <h2 class="SectionTitle">YOUR MOST ORDERED</h2>
 
-      <div class="MostOrdered__card">
-        <strong>Dry Cleaning</strong>
-        <p>12x | total of $ 4.000</p>
-      </div>
+      <ProjectCard
+        img="/sample-2.png"
+        title="Dry Cleaning"
+        subtitle="12x | total of $ 4.000"
+      />
     </section>
 
     <section class="LatestProduct">

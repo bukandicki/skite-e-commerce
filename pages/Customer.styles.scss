@@ -54,7 +54,7 @@
   background-color: getColor("light");
   background-image: linear-gradient(
     -62deg,
-    getColor("chinese-white", 0) 0%,
+    transparent 0%,
     getColor("water", 0.42) 100%
   );
   border-radius: viewportSize(10);
@@ -63,7 +63,6 @@
   p {
     @include fontStyling("Roboto", 18);
     color: getColor("black-space");
-    margin-bottom: viewportSize(4);
     text-align: right;
   }
 
@@ -143,7 +142,6 @@
       @include fontStyling("Roboto", 9);
       color: getColor("black-space");
       margin-top: viewportSize(15);
-      margin-bottom: viewportSize(3);
     }
 
     strong {
