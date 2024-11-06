@@ -1,0 +1,30 @@
+@use "_variables.scss" as *;
+@use "_functions.scss" as *;
+@use "_mixins.scss" as *;
+
+:root {
+  --viewport-width: 100vw;
+  --viewport-height: 100vh;
+  --base-viewport-width: 1440;
+
+  @each $key, $value in $colors {
+    --color-#{$key}: #{extractRGB($value)};
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.CustomerLayout {
+  width: var(--viewport-width);
+  min-height: var(--viewport-height);
+  background-color: getColor("bubbles");
+
+  @include desktop-screen {
+    margin: 0 auto;
+    max-width: viewportSize(375);
+  }
+}

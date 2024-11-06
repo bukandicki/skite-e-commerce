@@ -1,0 +1,20 @@
+@use "_functions.scss" as *;
+
+@mixin fontStyling($family, $size, $weight: 400) {
+  font-family: #{$family}, sans-serif;
+  font-size: viewportSize(#{$size});
+  line-height: goldenLineHeight(#{$size});
+  font-weight: $weight;
+}
+
+@mixin tablet-screen {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-screen {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
