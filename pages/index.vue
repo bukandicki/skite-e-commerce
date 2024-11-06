@@ -10,8 +10,8 @@ definePageMeta({
   layout: "customer",
 });
 
-const { result: slider_space } = useCalc(19);
-const { result: slider_offset } = useCalc(36);
+const { result: slider_space } = useCalc("slider_space", 19);
+const { result: slider_offset } = useCalc("slider_offset", 36);
 </script>
 
 <template>
