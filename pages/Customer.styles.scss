@@ -98,6 +98,86 @@
 
 .PreviousOrder {
   margin-bottom: viewportSize(39);
+
+  &__card {
+    display: flex;
+  }
+}
+
+.Previous {
+  &__detail {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: viewportSize(11) viewportSize(8);
+    border-radius: viewportSize(5) 0 0 viewportSize(5);
+    background-color: getColor("light");
+
+    img {
+      width: viewportSize(67);
+      height: viewportSize(73);
+    }
+  }
+
+  &__information {
+    margin-left: viewportSize(6);
+    margin-right: viewportSize(8);
+
+    label,
+    span,
+    strong {
+      display: block;
+      letter-spacing: viewportSize(1);
+    }
+
+    label {
+      @include fontStyling("Roboto", 15, 500);
+      color: getColor("cavernous");
+      max-width: viewportSize(122);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    span {
+      @include fontStyling("Roboto", 9);
+      color: getColor("black-space");
+      margin-top: viewportSize(15);
+      margin-bottom: viewportSize(3);
+    }
+
+    strong {
+      @include fontStyling("Roboto", 14, 700);
+      color: getColor("vivid-cerulean");
+    }
+  }
+
+  &__icon {
+    width: viewportSize(90);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 viewportSize(5) viewportSize(5) 0;
+    background: linear-gradient(
+      140.71deg,
+      #099def 7.69%,
+      rgba(9, 157, 239, 0.42) 95%
+    );
+
+    svg {
+      width: viewportSize(46);
+      aspect-ratio: 1/1;
+    }
+
+    span {
+      @include fontStyling("Roboto", 10, 500);
+      display: block;
+      margin-top: viewportSize(11);
+      color: getColor("light");
+      letter-spacing: viewportSize(1);
+    }
+  }
 }
 
 .MostOrdered {

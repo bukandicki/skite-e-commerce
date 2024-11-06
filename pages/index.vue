@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Note from "~/assets/icons/Note.vue";
 import "./Customer.styles.scss";
 
 definePageMeta({
@@ -26,21 +27,24 @@ definePageMeta({
       <h2 class="SectionTitle">PREVIOUS ORDER</h2>
 
       <div class="PreviousOrder__card">
-        <NuxtImg
-          class="PreviousOrderCard__img"
-          src="/sample-1.png"
-          width="67"
-          height="73"
-          sizes="200px"
-        />
-        <div class="PreviousOrderCard__detail">
-          <strong></strong>
-          <span></span>
-          <strong></strong>
+        <div class="Previous__detail">
+          <NuxtImg
+            class="Previous__img"
+            src="/sample-1.png"
+            width="67"
+            height="73"
+            sizes="200px"
+          />
+
+          <div class="Previous__information">
+            <label>Bag of Laundry</label>
+            <span>Total Order</span>
+            <strong>$ 180.00</strong>
+          </div>
         </div>
 
-        <div>
-          <i>icon later</i>
+        <div class="Previous__icon">
+          <Note />
           <span>INVOICE</span>
         </div>
       </div>
