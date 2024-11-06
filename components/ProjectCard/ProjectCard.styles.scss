@@ -1,4 +1,4 @@
-@use "~/assets/scss/_functions.scss" as *;
+@use "~/assets/scss/functions.scss" as *;
 @use "~/assets/scss/mixins.scss" as *;
 
 .ProjectCard {
@@ -54,6 +54,7 @@
 
     strong {
       @include fontStyling("Roboto", 23, 700);
+      letter-spacing: viewportSize(2);
     }
 
     p {
