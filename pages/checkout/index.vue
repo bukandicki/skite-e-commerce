@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-import Chat from "~/assets/icons/Chat.vue";
-
-import "./CheckoutPage.styles.scss";
-
 definePageMeta({
   name: "CheckoutPage",
   layout: "customer",
@@ -12,7 +8,7 @@ definePageMeta({
 <template>
   <main class="CheckoutPage">
     <section class="CheckoutPage__summary">
-      <div class="Summary__header">ORDER SUMMARY</div>
+      <h1 class="Summary__header">ORDER SUMMARY</h1>
 
       <div class="Summary__body">
         <span class="Summary__number">ORDER #21340</span>
@@ -57,8 +53,12 @@ definePageMeta({
       rel="nofollow noopener noreferrer"
       class="CheckoutPage__cta"
     >
-      <Chat />
+      <LazyIconChat />
       <span> WHATSAPP US </span>
     </NuxtLink>
   </main>
 </template>
+
+<style lang="scss">
+@use "./CheckoutPage.styles.scss" as *;
+</style>

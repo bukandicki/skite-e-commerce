@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import Note from "~/assets/icons/Note.vue";
 
 import "swiper/css";
-import "./Customer.styles.scss";
 
 definePageMeta({
   name: "CustomerPage",
@@ -50,7 +48,7 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
         </div>
 
         <div class="Previous__icon">
-          <Note />
+          <LazyIconNote />
           <span>INVOICE</span>
         </div>
       </NuxtLink>
@@ -77,7 +75,7 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
       >
         <SwiperSlide v-for="i in 6" :key="i">
           <NuxtLink href="/products/1">
-            <ProjectCard
+            <LazyProjectCard
               img="/sample-2.png"
               label="Dry Cleaning"
               title="Jeans"
@@ -89,3 +87,7 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
     </section>
   </main>
 </template>
+
+<style lang="scss">
+@use "./Customer.styles.scss" as *;
+</style>

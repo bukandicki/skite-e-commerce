@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import ChevronLeft from "~/assets/icons/ChevronLeft.vue";
-
 const router = useRouter();
 const route = useRoute();
 
@@ -16,7 +14,7 @@ const handleBack = () => {
       class="CustomerLayout__back"
       @click="handleBack"
     >
-      <ChevronLeft />
+      <LazyIconChevronLeft />
     </button>
 
     <slot />

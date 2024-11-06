@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import "./Admin.styles.scss";
-
 definePageMeta({
   name: "AdminPage",
   layout: "admin",
@@ -8,3 +6,7 @@ definePageMeta({
 </script>
 
 <template></template>
+
+<style lang="scss">
+@use "./Admin.styles.scss" as *;
+</style>
