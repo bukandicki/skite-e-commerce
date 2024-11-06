@@ -5,7 +5,7 @@
 :root {
   --viewport-width: 100vw;
   --viewport-height: 100vh;
-  --base-viewport-width: 1440;
+  --base-viewport-width: 375;
 
   @each $key, $value in $colors {
     --color-#{$key}: #{extractRGB($value)};
@@ -32,10 +32,14 @@ svg {
   vertical-align: middle;
 }
 
+button,
+input {
+  outline: none;
+}
+
 button {
   background-color: transparent;
   border: none;
-  outline: none;
   display: block;
   cursor: pointer;
 }
