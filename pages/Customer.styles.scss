@@ -2,7 +2,6 @@
 @use "~/assets/scss/mixins.scss" as *;
 
 .CustomerPage {
-  padding: viewportSize(36);
   position: relative;
   overflow: hidden;
 
@@ -17,6 +16,10 @@
     transform: translateX(-50%);
     border-radius: 50%;
     background-color: getColor("pastel-red");
+  }
+
+  section:not(:last-child) {
+    padding: 0 viewportSize(36);
   }
 }
 
@@ -184,4 +187,12 @@
 
 .LatestProduct {
   margin-bottom: viewportSize(41);
+
+  .SectionTitle {
+    margin-left: viewportSize(36);
+  }
+
+  .swiper-slide {
+    width: viewportSize(176);
+  }
 }

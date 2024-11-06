@@ -1,11 +1,17 @@
 <script lang="ts" setup>
+import { Swiper, SwiperSlide } from "swiper/vue";
 import Note from "~/assets/icons/Note.vue";
+
+import "swiper/css";
 import "./Customer.styles.scss";
 
 definePageMeta({
   name: "CustomerPage",
   layout: "customer",
 });
+
+const { result: slider_space } = useCalc(19);
+const { result: slider_offset } = useCalc(36);
 </script>
 
 <template>
@@ -63,19 +69,21 @@ definePageMeta({
     <section class="LatestProduct">
       <h2 class="SectionTitle">OUR LATEST PRODUCT</h2>
 
-      <div class="LatestProduct__slider">
-        <div class="LatestProduct__card">
-          <span>Dry Cleaning</span>
-          <strong>Jeans</strong>
-          <p>$ 10.00/pc</p>
-        </div>
-
-        <div class="LatestProduct__card">
-          <span>Dry Cleaning</span>
-          <strong>Jeans</strong>
-          <p>$ 10.00/pc</p>
-        </div>
-      </div>
+      <Swiper
+        :space-between="slider_space"
+        slides-per-view="auto"
+        :slides-offset-before="slider_offset"
+        :slides-offset-after="slider_offset"
+      >
+        <SwiperSlide v-for="i in 6" :key="i">
+          <ProjectCard
+            img="/sample-2.png"
+            label="Dry Cleaning"
+            title="Jeans"
+            subtitle="$ 10.00/pc"
+          />
+        </SwiperSlide>
+      </Swiper>
     </section>
   </main>
 </template>
