@@ -60,4 +60,10 @@
       @include fontStyling("Roboto", 20);
     }
   }
+
+  &__detail[data-labeled="false"] {
+    p {
+      @include fontStyling("Roboto", 16);
+    }
+  }
 }
