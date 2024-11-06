@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+a,
 img,
 svg {
   display: block;
@@ -27,13 +32,29 @@ svg {
   vertical-align: middle;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: block;
+  cursor: pointer;
+}
+
 .CustomerLayout {
   width: var(--viewport-width);
   min-height: var(--viewport-height);
   background-color: getColor("bubbles");
+  position: relative;
 
   @include desktop-screen {
     margin: 0 auto;
     max-width: viewportSize(375);
+  }
+
+  &__back {
+    position: absolute;
+    left: viewportSize(6);
+    top: viewportSize(32);
+    z-index: 1;
   }
 }
