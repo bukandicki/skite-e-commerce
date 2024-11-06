@@ -6,5 +6,9 @@ definePageMeta({
 </script>
 
 <template>
-  <main></main>
+  <main class="DetailProduct">
+    <section class="DetailProduct__thumbnail"></section>
+
+    <section class="DetailProduct__detail"></section>
+  </main>
 </template>

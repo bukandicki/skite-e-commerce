@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import "./ProjectCard.styles.scss";
-
 const props = defineProps<{
   label?: string;
   title: string;
@@ -20,3 +18,7 @@ const props = defineProps<{
     </div>
   </div>
 </template>
+
+<style lang="scss">
+@use "./ProjectCard.styles.scss" as *;
+</style>
