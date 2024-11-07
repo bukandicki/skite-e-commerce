@@ -28,11 +28,4 @@
     border-radius: viewportSize(9);
     border: solid viewportSize(0.9) getColor("celestial-blue");
   }
-
-  &__input::-webkit-inner-spin-button,
-  &__input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
 }

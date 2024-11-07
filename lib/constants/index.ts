@@ -3,6 +3,8 @@ import type {
   RouteLocationAsRelativeGeneric,
 } from "vue-router";
 
+export const SIDEBAR_STATE_KEY = Symbol() as InjectionKey<Ref<boolean>>;
+
 export const MENUS: Array<{
   title: string;
   href: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
@@ -15,7 +17,7 @@ export const MENUS: Array<{
   },
   {
     title: "Products",
-    href: "/admin/products",
+    href: "/admin/products/create",
     icon: "folder",
   },
   {
@@ -80,3 +82,28 @@ export const FAKE_SOLDS = [
     income: "230",
   },
 ];
+
+// TODO: REMOVE THIS LATER
+
+export const FAKE_CATEGORY_RESPONSE = {
+  status: true,
+  message: "Success get categories",
+  response: [
+    {
+      id: 1,
+      name: "Wash and Fold",
+    },
+    {
+      id: 2,
+      name: "Dry Clean",
+    },
+    {
+      id: 3,
+      name: "Home",
+    },
+    {
+      id: 4,
+      name: "Others",
+    },
+  ],
+};

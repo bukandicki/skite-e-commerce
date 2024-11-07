@@ -11,6 +11,10 @@
     --color-#{$key}: #{extractRGB($value)};
   }
 
+  @include tablet-screen {
+    --base-viewport-width: 768;
+  }
+
   @include desktop-screen {
     --base-viewport-width: 1440;
   }
@@ -51,4 +55,11 @@ button {
 ol,
 ul {
   list-style-type: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

@@ -12,7 +12,7 @@ const selected_selling_range = ref<string | undefined>(undefined);
 
 <template>
   <main class="AdminPage">
-    <section>
+    <section class="AdminPage__sold">
       <LazyCard title="Product Sold">
         <template #option>
           <LazySelect
@@ -29,7 +29,7 @@ const selected_selling_range = ref<string | undefined>(undefined);
       </LazyCard>
     </section>
 
-    <section>
+    <section class="AdminPage__selling">
       <LazyCard title="Top selling product">
         <template #option>
           <LazySelect
@@ -38,6 +38,26 @@ const selected_selling_range = ref<string | undefined>(undefined);
             :value="selected_selling_range"
           />
         </template>
+
+        <table class="Selling__table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr v-for="i in 3" :key="i">
+              <td>
+                <span>Item A</span>
+              </td>
+              <td>
+                <span>$ 120.00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </LazyCard>
     </section>
   </main>

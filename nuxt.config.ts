@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   googleFonts: {
     display: "swap",
     preload: true,
+    download: true,
+    prefetch: true,
+    inject: true,
+    overwriting: true,
+    base64: true,
     families: {
       Roboto: [400, 500, 600, 700],
     },

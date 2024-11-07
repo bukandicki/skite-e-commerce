@@ -37,15 +37,15 @@ const formatDate = (date: string) => {
 <template>
   <div class="Chart">
     <div class="Chart__wrapper" v-for="chart in chart_lists" :key="chart.label">
-      <p class="Chart__label" v-if="chart.value !== undefined">
-        {{ chart.value }} Items
-      </p>
-
       <div
         class="Chart__bar"
         v-if="chart.value !== undefined"
         :style="{ height: `${chart.height}%` }"
-      ></div>
+      >
+        <p class="Chart__label" v-if="chart.value !== undefined">
+          {{ chart.value }} Items
+        </p>
+      </div>
 
       <p class="Chart__date">{{ formatDate(chart.label) }}</p>
     </div>

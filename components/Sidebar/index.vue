@@ -5,7 +5,7 @@ import {
   LazyIconGear,
   LazyIconHome,
 } from "#components";
-import { MENUS } from "~/lib/constants";
+import { MENUS, SIDEBAR_STATE_KEY } from "~/lib/constants";
 
 const ICONS: Record<"home" | "folder" | "chart" | "gear", Component> = {
   home: LazyIconHome,
@@ -14,12 +14,18 @@ const ICONS: Record<"home" | "folder" | "chart" | "gear", Component> = {
   gear: LazyIconGear,
 };
 
+const sidebarState = inject(SIDEBAR_STATE_KEY);
+
 const route = useRoute();
 </script>
 
 <template>
-  <aside class="Sidebar">
+  <aside :class="['Sidebar', { 'Sidebar--show': sidebarState }]">
     <div class="Sidebar__wrapper">
+      <button @click="sidebarState = false" class="Sidebar__close">
+        <LazyIconClose />
+      </button>
+
       <div class="Sidebar__brand">
         <LazyIconBrand />
         <span>BeLaundry</span>

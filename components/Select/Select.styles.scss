@@ -10,6 +10,7 @@
     padding: viewportSize(5) viewportSize(7);
     border-radius: viewportSize(8);
     border: solid viewportSize(0.95) getColor("columbia");
+    color: getColor("davy-grey");
 
     span {
       @include fontStyling("Roboto", 14);
@@ -29,12 +30,12 @@
     position: absolute;
     top: viewportSize(44);
     left: 0;
+    z-index: 2;
     visibility: hidden;
     border-radius: viewportSize(8);
     overflow: hidden;
     opacity: 0;
     transition: all 350ms ease-in-out;
-
     background-color: getColor("light");
     box-shadow: 0 viewportSize(4) viewportSize(4) 0 getColor("azureish");
   }
@@ -43,6 +44,7 @@
     @include fontStyling("Roboto", 14);
     width: 100%;
     padding: viewportSize(8) 0;
+    color: getColor("davy-grey");
   }
 
   &__item button[data-selected="true"] {

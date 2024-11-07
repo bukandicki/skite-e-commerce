@@ -1,5 +1,26 @@
 <script lang="ts" setup>
+import { SIDEBAR_STATE_KEY } from "~/lib/constants";
+
 const route = useRoute();
+
+const state = ref<boolean>(false);
+
+provide(SIDEBAR_STATE_KEY, state);
+
+const handleToggleSidebar = () => {
+  state.value = !state.value;
+};
+
+const handleResetState = () => {
+  if (state.value) state.value = false;
+};
+
+onMounted(() => {
+  window.addEventListener("resize", handleResetState);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResetState);
+});
 </script>
 
 <template>
@@ -8,7 +29,7 @@ const route = useRoute();
     <div class="AdminLayout__wrapper">
       <header class="AdminLayout__header">
         <div class="Header__wrapper">
-          <button class="Header__brand">
+          <button @click="handleToggleSidebar" class="Header__brand">
             <LazyIconBrand />
           </button>
 
@@ -17,7 +38,7 @@ const route = useRoute();
           <div class="Header__user">
             <LazyIconUser />
 
-            <NuxtLink href="/admin/setting"> Jhon Doe </NuxtLink>
+            <NuxtLink href="/admin/settings"> Jhon Doe </NuxtLink>
           </div>
         </div>
       </header>

@@ -3,44 +3,72 @@
 
 .Chart {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   height: viewportSize(225);
-  gap: viewportSize(63);
-  margin-top: viewportSize(65);
+  gap: 2%;
+  margin-top: viewportSize(54);
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
   }
 
   &__wrapper:hover {
-    > .Chart__bar {
+    .Chart__bar {
       background-color: getColor("steel-blue");
     }
 
-    p:nth-child(1) {
-      transform: translateY(0);
+    .Chart__label {
+      opacity: 1;
+      transform: translate(-50%, 0);
     }
   }
 
   &__bar {
-    width: viewportSize(68);
+    width: 100%;
     background-color: getColor("pastel-blue");
     height: viewportSize(200);
     border-radius: viewportSize(5);
+    position: relative;
     z-index: 1;
-    margin: viewportSize(7) 0 viewportSize(11) 0;
+    margin: 0 0 viewportSize(11) 0;
   }
 
   p {
-    @include fontStyling("Roboto", 13);
+    @include fontStyling("Roboto", 10);
     color: getColor("pastel-blue");
     text-align: center;
+  }
 
-    &:nth-child(1) {
-      transform: translateY(120%);
-      transition: transform 150ms ease-in-out;
+  &__label {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    white-space: nowrap;
+    top: viewportSize(-24);
+    transform: translate(-50%, 100%);
+    transition: transform 150ms ease-in-out;
+  }
+
+  @include tablet-screen {
+    &__bar {
+      width: viewportSize(60);
+    }
+  }
+
+  @include desktop-screen {
+    justify-content: center;
+    gap: viewportSize(63);
+    margin-top: viewportSize(65);
+
+    &__bar {
+      width: viewportSize(68);
+    }
+
+    p {
+      @include fontStyling("Roboto", 13);
     }
   }
 }
