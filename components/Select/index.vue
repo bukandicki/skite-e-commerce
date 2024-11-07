@@ -15,6 +15,11 @@ const getValueLabel = computed(() => {
   if (selected_option) return selected_option.label;
   else return props.placeholder;
 });
+
+const handleSelectValue = (val: T) => {
+  emit("change", val);
+  show.value = false;
+};
 </script>
 
 <template>
@@ -38,7 +43,7 @@ const getValueLabel = computed(() => {
         :key="(option.value as string)"
       >
         <button
-          @click="() => emit('change', option.value)"
+          @click="() => handleSelectValue(option.value)"
           :data-selected="value === option.value"
         >
           {{ option.label }}
