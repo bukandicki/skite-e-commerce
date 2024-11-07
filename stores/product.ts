@@ -45,8 +45,6 @@ export const useProductStore = defineStore("product", () => {
         }
       );
 
-      console.log(data);
-
       return data.response;
     } catch (error) {
       console.error(error);
