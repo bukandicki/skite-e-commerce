@@ -3,6 +3,7 @@
 
 .AdminLayout {
   display: flex;
+  flex-direction: column;
 
   &__wrapper {
     display: flex;
@@ -14,6 +15,10 @@
     flex: 1;
     background-color: getColor("bubbles");
     padding-bottom: viewportSize(204);
+  }
+
+  @include desktop-screen {
+    flex-direction: row;
   }
 }
 
@@ -29,20 +34,22 @@
   &__brand {
     display: block;
 
-    @include desktop-screen {
-      display: none;
+    svg {
+      width: viewportSize(47);
     }
   }
 
   &__title {
     @include fontStyling("Roboto", 41, 700);
+    display: none;
     color: getColor("charcoal");
     letter-spacing: viewportSize(4);
   }
 
   &__user {
-    display: flex;
+    display: none;
     align-items: center;
+    margin-left: auto;
 
     svg {
       width: viewportSize(39);
@@ -54,6 +61,20 @@
       @include fontStyling("Roboto", 25, 500);
       text-decoration: underline;
       color: getColor("vivid-cerulean");
+    }
+  }
+
+  @include desktop-screen {
+    &__brand {
+      display: none;
+    }
+
+    &__user {
+      display: flex;
+    }
+
+    &__title {
+      display: block;
     }
   }
 }
