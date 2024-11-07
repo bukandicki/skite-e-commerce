@@ -22,5 +22,5 @@ const handleBack = () => {
 </template>
 
 <style lang="scss">
-@use "./Customer.styles.scss" as *;
+@use "./CustomerLayout.styles.scss" as *;
 </style>
