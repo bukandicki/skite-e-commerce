@@ -19,29 +19,31 @@ const route = useRoute();
 
 <template>
   <aside class="Sidebar">
-    <div class="Sidebar__brand">
-      <LazyIconBrand />
-      <span>BeLaundry</span>
-    </div>
+    <div class="Sidebar__wrapper">
+      <div class="Sidebar__brand">
+        <LazyIconBrand />
+        <span>BeLaundry</span>
+      </div>
 
-    <div class="Sidebar__menu">
-      <span>Menu</span>
+      <div class="Sidebar__menu">
+        <span>Menu</span>
 
-      <ol class="Menu__items">
-        <li class="Menu__item" v-for="menu in MENUS">
-          <NuxtLink
-            :class="[
-              'Menu__link',
-              { 'Menu__link--active': route.path === menu.href },
-            ]"
-            :href="menu.href"
-          >
-            <component :is="ICONS[menu.icon]"></component>
+        <ol class="Menu__items">
+          <li class="Menu__item" v-for="menu in MENUS">
+            <NuxtLink
+              :class="[
+                'Menu__link',
+                { 'Menu__link--active': route.path === menu.href },
+              ]"
+              :href="menu.href"
+            >
+              <component :is="ICONS[menu.icon]"></component>
 
-            <span>{{ menu.title }}</span>
-          </NuxtLink>
-        </li>
-      </ol>
+              <span>{{ menu.title }}</span>
+            </NuxtLink>
+          </li>
+        </ol>
+      </div>
     </div>
   </aside>
 </template>

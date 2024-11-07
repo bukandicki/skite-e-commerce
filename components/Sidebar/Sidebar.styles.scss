@@ -7,8 +7,14 @@
 
 .Sidebar {
   background-color: getColor("celestial-blue");
-  height: var(--viewport-height);
+  min-height: var(--viewport-height);
   padding: viewportSize(52) viewportSize(30);
+
+  &__wrapper {
+    position: sticky;
+    top: viewportSize(52);
+    left: 0;
+  }
 
   &__brand {
     display: flex;
