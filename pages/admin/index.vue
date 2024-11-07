@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-import { FAKE_SOLDS } from "~/lib/constants";
+import { FAKE_SOLDS, PERIOD_RANGES } from "~/lib/constants";
 
 definePageMeta({
   name: "AdminPage",
   layout: "admin",
 });
 
-const selected_sold_range = ref<number | undefined>(undefined);
+const selected_sold_range = ref<string | undefined>(undefined);
+const selected_selling_range = ref<string | undefined>(undefined);
 </script>
 
 <template>
@@ -16,12 +17,7 @@ const selected_sold_range = ref<number | undefined>(undefined);
         <template #option>
           <LazySelect
             @change="selected_sold_range = $event"
-            :options="[
-              { label: 'This Day', value: 1 },
-              { label: 'This Week', value: 2 },
-              { label: 'This Month', value: 3 },
-              { label: 'This Year', value: 4 },
-            ]"
+            :options="PERIOD_RANGES"
             :value="selected_sold_range"
           />
         </template>
@@ -33,7 +29,17 @@ const selected_sold_range = ref<number | undefined>(undefined);
       </LazyCard>
     </section>
 
-    <section></section>
+    <section>
+      <LazyCard title="Top selling product">
+        <template #option>
+          <LazySelect
+            @change="selected_selling_range = $event"
+            :options="PERIOD_RANGES"
+            :value="selected_selling_range"
+          />
+        </template>
+      </LazyCard>
+    </section>
   </main>
 </template>
 

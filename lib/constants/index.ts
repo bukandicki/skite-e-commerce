@@ -30,6 +30,13 @@ export const MENUS: Array<{
   },
 ];
 
+export const PERIOD_RANGES = [
+  { label: "This Day", value: "daily" },
+  { label: "This Week", value: "weekly" },
+  { label: "This Month", value: "monthly" },
+  { label: "This Year", value: "yearly" },
+];
+
 // TODO: REMOVE THIS LATER
 export const FAKE_SOLDS = [
   {
