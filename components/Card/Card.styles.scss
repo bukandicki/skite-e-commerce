@@ -5,6 +5,7 @@
   background-color: getColor("light");
   border-radius: viewportSize(14);
   padding: viewportSize(19) viewportSize(28) viewportSize(72);
+  box-shadow: 0 viewportSize(4) viewportSize(4) 0 getColor("azureish");
 
   &__header {
     display: flex;
