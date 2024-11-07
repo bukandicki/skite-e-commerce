@@ -5,6 +5,8 @@ export const useCategoryStore = defineStore("category", () => {
     public: { baseApi },
   } = useRuntimeConfig();
 
+  const userStore = useUserStore();
+
   const categories = useState<Array<CategoryType>>("categories", () => []);
 
   async function FETCH_ALL(): Promise<
@@ -15,8 +17,9 @@ export const useCategoryStore = defineStore("category", () => {
         `${baseApi}/product/categories`,
         {
           method: "GET",
+          cache: "force-cache",
           headers: {
-            token: "",
+            token: userStore.token as string,
           },
         }
       );
