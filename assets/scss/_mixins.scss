@@ -1,4 +1,4 @@
-@use "_functions.scss" as *;
+@use "functions.scss" as *;
 
 @mixin fontStyling($family, $size, $weight: 400) {
   font-family: #{$family}, sans-serif;
