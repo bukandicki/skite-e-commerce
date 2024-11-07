@@ -82,3 +82,28 @@ export const FAKE_SOLDS = [
     income: "230",
   },
 ];
+
+// TODO: REMOVE THIS LATER
+
+export const FAKE_CATEGORY_RESPONSE = {
+  status: true,
+  message: "Success get categories",
+  response: [
+    {
+      id: 1,
+      name: "Wash and Fold",
+    },
+    {
+      id: 2,
+      name: "Dry Clean",
+    },
+    {
+      id: 3,
+      name: "Home",
+    },
+    {
+      id: 4,
+      name: "Others",
+    },
+  ],
+};
