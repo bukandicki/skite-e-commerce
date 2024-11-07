@@ -1,0 +1,68 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.Select {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    padding: viewportSize(5) viewportSize(7);
+    border-radius: viewportSize(8);
+    border: solid viewportSize(0.95) getColor("columbia");
+
+    span {
+      @include fontStyling("Roboto", 14);
+    }
+
+    svg {
+      margin-left: viewportSize(9);
+      transition: all 350ms ease-in-out;
+    }
+  }
+
+  &__options {
+    width: 100%;
+    position: absolute;
+    top: viewportSize(44);
+    left: 0;
+    visibility: hidden;
+    border-radius: viewportSize(8);
+    overflow: hidden;
+    opacity: 0;
+    transition: all 350ms ease-in-out;
+
+    background-color: getColor("light");
+    box-shadow: 0 viewportSize(4) viewportSize(4) 0 getColor("azureish");
+  }
+
+  &__item button {
+    @include fontStyling("Roboto", 14);
+    width: 100%;
+    padding: viewportSize(8) 0;
+  }
+
+  &__item button[data-selected="true"] {
+    font-weight: 700;
+    color: getColor("vivid-cerulean");
+  }
+
+  &__item button[data-selected="true"],
+  &__item button:hover {
+    background-color: getColor("bubbles");
+  }
+  &__item:not(:last-child) button {
+    border-bottom: solid viewportSize(0.95) getColor("columbia");
+  }
+}
+
+.Select--show {
+  .Select__trigger svg {
+    transform: rotate(180deg);
+  }
+
+  .Select__options {
+    visibility: visible;
+    opacity: 1;
+  }
+}
