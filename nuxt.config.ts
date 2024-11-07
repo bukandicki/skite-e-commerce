@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      baseApi: process.env.NUXT_BASE_API_URL,
+    },
+  },
+
   css: ["~/assets/scss/_preflight.scss"],
 
   googleFonts: {
@@ -27,5 +33,5 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/google-fonts", "@nuxt/image"],
+  modules: ["@nuxtjs/google-fonts", "@nuxt/image", "@pinia/nuxt"],
 });
