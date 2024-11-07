@@ -8,14 +8,19 @@ definePageMeta({
   layout: "customer",
 });
 
+const userStore = useUserStore();
+const productStore = useProductStore();
+
 const { result: slider_space } = useCalc("slider_space", 19);
 const { result: slider_offset } = useCalc("slider_offset", 36);
+
+await useAsyncData("products", () => productStore.FETCH_ALL());
 </script>
 
 <template>
   <main class="CustomerPage">
     <section class="Information">
-      <h1 class="Information__name">Welcome, Jhon</h1>
+      <h1 class="Information__name">Welcome, {{ userStore.user?.name }}</h1>
 
       <div class="Information__card">
         <div class="InformationCard">
@@ -73,13 +78,13 @@ const { result: slider_offset } = useCalc("slider_offset", 36);
         :slides-offset-before="slider_offset"
         :slides-offset-after="slider_offset"
       >
-        <SwiperSlide v-for="i in 6" :key="i">
-          <NuxtLink href="/products/1">
+        <SwiperSlide v-for="product in productStore.products" :key="product.id">
+          <NuxtLink :href="`/products/${product.id}`">
             <LazyProjectCard
-              img="/sample-2.png"
-              label="Dry Cleaning"
-              title="Jeans"
-              subtitle="$ 10.00/pc"
+              :img="product.image || '/image-placeholder.png'"
+              :label="product.category_id"
+              :title="product.name"
+              :subtitle="`$ ${product.price}/pc`"
             />
           </NuxtLink>
         </SwiperSlide>
