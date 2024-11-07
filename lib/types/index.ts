@@ -18,3 +18,8 @@ export type ProductType = {
   created_at: string;
   updated_at: string;
 };
+
+export type CategoryType = {
+  id: number;
+  name: string;
+};
