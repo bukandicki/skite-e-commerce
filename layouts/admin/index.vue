@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
           <div class="Header__user">
             <LazyIconUser />
 
-            <NuxtLink href="/admin/setting"> Jhon Doe </NuxtLink>
+            <NuxtLink href="/admin/settings"> Jhon Doe </NuxtLink>
           </div>
         </div>
       </header>

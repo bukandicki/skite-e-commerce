@@ -1,0 +1,175 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.CreatePage {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-bottom: 0 !important;
+
+  &__form {
+    flex: 1;
+    padding: viewportSize(34) viewportSize(20) viewportSize(31);
+
+    h2 {
+      @include fontStyling("Roboto", 37, 700);
+      letter-spacing: viewportSize(2);
+      margin-bottom: viewportSize(35);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding: 0 viewportSize(21) viewportSize(464);
+
+    input {
+      display: none;
+    }
+
+    button {
+      width: viewportSize(270);
+      border-radius: viewportSize(36);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: sticky;
+      top: viewportSize(38);
+      aspect-ratio: 1/1;
+      background-color: getColor("light");
+      width: 100%;
+    }
+
+    span {
+      @include fontStyling("Roboto", 20, 700);
+      text-decoration: underline;
+      color: getColor("celestial-blue");
+    }
+
+    img {
+      width: viewportSize(171);
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      margin-bottom: viewportSize(20);
+    }
+  }
+
+  @include desktop-screen {
+    flex-direction: row;
+
+    &__form {
+      padding: viewportSize(32) viewportSize(39) viewportSize(204);
+    }
+
+    &__image {
+      width: viewportSize(324);
+      padding: unset;
+      background-color: getColor("ghost");
+
+      button {
+        margin: viewportSize(38) auto 0;
+      }
+    }
+
+    &__form h2 {
+      @include fontStyling("Roboto", 41, 700);
+      margin-bottom: viewportSize(57);
+    }
+  }
+}
+
+.ProductForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: viewportSize(23);
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: viewportSize(39);
+
+    .Input {
+      width: 100%;
+    }
+  }
+
+  input[name="stock"] {
+    width: viewportSize(116);
+  }
+
+  input[name="price"] {
+    width: viewportSize(155);
+  }
+
+  button[type="submit"] {
+    @include fontStyling("Roboto", 20, 700);
+    position: absolute;
+    bottom: viewportSize(-481);
+    display: block;
+    width: 100%;
+    height: viewportSize(60);
+    align-self: end;
+    margin-left: auto;
+    border-radius: viewportSize(10);
+    color: getColor("light");
+    background-color: getColor("medium-aquamarine");
+  }
+
+  &__categories label {
+    @include fontStyling("Roboto", 20);
+    display: block;
+    color: getColor("celestial-blue");
+  }
+
+  &__categories div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: viewportSize(22);
+    margin-top: viewportSize(11);
+  }
+
+  &__categories button {
+    @include fontStyling("Roboto", 20);
+    color: getColor("celestial-blue");
+    background-color: getColor("water");
+    padding: viewportSize(12) viewportSize(11);
+    border-radius: viewportSize(8);
+  }
+
+  &__categories button[data-selected="true"] {
+    color: getColor("light");
+    background-color: getColor("celestial-blue");
+    box-shadow: 0 viewportSize(4) viewportSize(4) 0
+      getColor("celestial-blue", 0.29);
+  }
+
+  @include desktop-screen {
+    &__group {
+      flex-direction: row;
+
+      .Input {
+        width: viewportSize(237);
+      }
+    }
+
+    input[name="stock"] {
+      width: unset;
+    }
+
+    input[name="price"] {
+      width: unset;
+    }
+
+    button[type="submit"] {
+      width: viewportSize(171);
+      position: relative;
+      bottom: unset;
+      left: unset;
+    }
+
+    &__categories button {
+      padding: viewportSize(12) viewportSize(15);
+    }
+  }
+}
