@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseApi: process.env.NUXT_BASE_API_URL,
+      email: process.env.NUXT_EMAIL,
+      password: process.env.NUXT_PASSWORD,
     },
   },
 
