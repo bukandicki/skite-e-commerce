@@ -3,9 +3,9 @@
 
 .Chart {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   height: viewportSize(225);
-  gap: viewportSize(13);
+  gap: 2%;
   margin-top: viewportSize(54);
 
   &__wrapper {
@@ -27,7 +27,7 @@
   }
 
   &__bar {
-    width: viewportSize(20);
+    width: 100%;
     background-color: getColor("pastel-blue");
     height: viewportSize(200);
     border-radius: viewportSize(5);
@@ -52,7 +52,14 @@
     transition: transform 150ms ease-in-out;
   }
 
+  @include tablet-screen {
+    &__bar {
+      width: viewportSize(60);
+    }
+  }
+
   @include desktop-screen {
+    justify-content: center;
     gap: viewportSize(63);
     margin-top: viewportSize(65);
 
