@@ -3,4 +3,70 @@
 
 .AdminPage {
   padding: viewportSize(20) viewportSize(27) viewportSize(20) viewportSize(30);
+
+  &__selling {
+    max-width: viewportSize(381);
+    margin-top: viewportSize(35);
+
+    .Card {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.Selling__table {
+  margin-top: viewportSize(41);
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    border-bottom: solid viewportSize(1) getColor("alice");
+  }
+
+  tbody tr {
+    position: relative;
+
+    &::after {
+      content: "";
+      width: calc(100% + viewportSize(28 * 2));
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: viewportSize(-28);
+      z-index: 0;
+      background-color: transparent;
+    }
+  }
+
+  tbody tr:hover {
+    &::after {
+      background-color: getColor("alice");
+    }
+  }
+
+  th,
+  td {
+    @include fontStyling("Roboto", 13);
+    text-align: left;
+
+    &:last-child {
+      text-align: center;
+      width: 20%;
+    }
+  }
+
+  th {
+    padding-bottom: viewportSize(7);
+    color: getColor("davy-grey");
+  }
+
+  td {
+    padding: viewportSize(16) 0;
+
+    span {
+      position: relative;
+      z-index: 1;
+      color: getColor("gunmetal");
+    }
+  }
 }

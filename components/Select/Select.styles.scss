@@ -10,6 +10,7 @@
     padding: viewportSize(5) viewportSize(7);
     border-radius: viewportSize(8);
     border: solid viewportSize(0.95) getColor("columbia");
+    color: getColor("davy-grey");
 
     span {
       @include fontStyling("Roboto", 14);
@@ -43,6 +44,7 @@
     @include fontStyling("Roboto", 14);
     width: 100%;
     padding: viewportSize(8) 0;
+    color: getColor("davy-grey");
   }
 
   &__item button[data-selected="true"] {
