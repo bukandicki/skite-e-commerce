@@ -5,6 +5,8 @@ export const useProductStore = defineStore("product", () => {
     public: { baseApi },
   } = useRuntimeConfig();
 
+  const userStore = useUserStore();
+
   const products = useState<Array<ProductType>>("products", () => []);
 
   async function FETCH_ALL(): Promise<
@@ -15,8 +17,9 @@ export const useProductStore = defineStore("product", () => {
         `${baseApi}/product`,
         {
           method: "GET",
+          cache: "force-cache",
           headers: {
-            token: "",
+            token: userStore.token as string,
           },
         }
       );
@@ -29,21 +32,22 @@ export const useProductStore = defineStore("product", () => {
     }
   }
 
-  async function FETCH_DETAIL(
-    id: number
-  ): Promise<APIResponseType<ProductType> | undefined> {
+  async function FETCH_DETAIL(id: number): Promise<ProductType | undefined> {
     try {
       const data = await $fetch<APIResponseType<ProductType>>(
         `${baseApi}/product/${id}`,
         {
           method: "GET",
+          cache: "force-cache",
           headers: {
-            token: "",
+            token: userStore.token as string,
           },
         }
       );
 
-      return data;
+      console.log(data);
+
+      return data.response;
     } catch (error) {
       console.error(error);
     }
@@ -60,7 +64,7 @@ export const useProductStore = defineStore("product", () => {
           body: JSON.stringify(payload),
           headers: {
             "Content-Type": "application/json",
-            token: "",
+            token: userStore.token as string,
           },
         }
       );
