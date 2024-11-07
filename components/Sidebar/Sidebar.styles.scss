@@ -1,0 +1,76 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+// viewportSize
+// getColor
+//   @include fontStyling("Roboto", 16, 700);
+
+.Sidebar {
+  background-color: getColor("celestial-blue");
+  height: var(--viewport-height);
+  padding: viewportSize(52) viewportSize(30);
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: viewportSize(78);
+
+    svg {
+      width: viewportSize(80);
+      height: viewportSize(56);
+      margin-right: viewportSize(15);
+    }
+
+    span {
+      @include fontStyling("Roboto", 30, 700);
+      color: getColor("light");
+    }
+  }
+
+  &__menu {
+    > span {
+      @include fontStyling("Roboto", 24, 700);
+      color: getColor("light");
+    }
+  }
+}
+
+.Menu {
+  &__items {
+    margin-top: viewportSize(9);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    margin-bottom: viewportSize(30);
+    padding: viewportSize(14) viewportSize(10);
+    border-radius: viewportSize(12);
+
+    svg {
+      width: viewportSize(45);
+      aspect-ratio: 1/1;
+      margin-right: viewportSize(15);
+      fill: getColor("light");
+    }
+
+    span {
+      @include fontStyling("Roboto", 26);
+      color: getColor("light");
+    }
+  }
+
+  &__link:hover,
+  &__link--active {
+    background-color: getColor("light");
+
+    svg {
+      fill: getColor("vivid-cerulean");
+    }
+
+    span {
+      color: getColor("vivid-cerulean");
+      font-weight: 700;
+    }
+  }
+}

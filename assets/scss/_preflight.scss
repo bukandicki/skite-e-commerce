@@ -1,6 +1,6 @@
-@use "_variables.scss" as *;
-@use "_functions.scss" as *;
-@use "_mixins.scss" as *;
+@use "variables.scss" as *;
+@use "functions.scss" as *;
+@use "mixins.scss" as *;
 
 :root {
   --viewport-width: 100vw;
@@ -9,6 +9,10 @@
 
   @each $key, $value in $colors {
     --color-#{$key}: #{extractRGB($value)};
+  }
+
+  @include desktop-screen {
+    --base-viewport-width: 1440;
   }
 }
 
@@ -44,26 +48,7 @@ button {
   cursor: pointer;
 }
 
-.CustomerLayout {
-  width: var(--viewport-width);
-  min-height: var(--viewport-height);
-  background-color: getColor("bubbles");
-  position: relative;
-
-  @include desktop-screen {
-    margin: 0 auto;
-    max-width: viewportSize(375);
-  }
-
-  &__back {
-    position: absolute;
-    left: viewportSize(6);
-    top: viewportSize(32);
-    z-index: 1;
-
-    svg {
-      width: viewportSize(59);
-      aspect-ratio: 1/1;
-    }
-  }
+ol,
+ul {
+  list-style-type: none;
 }

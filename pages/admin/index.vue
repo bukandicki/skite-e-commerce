@@ -5,7 +5,9 @@ definePageMeta({
 });
 </script>
 
-<template></template>
+<template>
+  <main class="AdminPage"></main>
+</template>
 
 <style lang="scss">
 @use "./Admin.styles.scss" as *;

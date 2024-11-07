@@ -20,3 +20,7 @@ const handleBack = () => {
     <slot />
   </div>
 </template>
+
+<style lang="scss">
+@use "./CustomerLayout.styles.scss" as *;
+</style>
