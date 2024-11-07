@@ -16,8 +16,10 @@
     }
 
     svg {
+      width: viewportSize(22);
+      aspect-ratio: 1/1;
       margin-left: viewportSize(9);
-      transition: all 350ms ease-in-out;
+      transition: transform 350ms ease-in-out;
     }
   }
 
