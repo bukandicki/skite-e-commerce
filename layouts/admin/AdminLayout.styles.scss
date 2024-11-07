@@ -1,7 +1,59 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
 .AdminLayout {
   display: flex;
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+  }
+
+  main {
+    flex: 1;
+    background-color: getColor("bubbles");
+    padding-bottom: viewportSize(204);
+  }
+}
+
+.Header {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 viewportSize(26);
+    height: viewportSize(97);
+  }
+
+  &__brand {
+    display: block;
+
+    @include desktop-screen {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include fontStyling("Roboto", 41, 700);
+    color: getColor("charcoal");
+    letter-spacing: viewportSize(4);
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: viewportSize(39);
+      aspect-ratio: 1/1;
+      margin-right: viewportSize(9);
+    }
+
+    a {
+      @include fontStyling("Roboto", 25, 500);
+      text-decoration: underline;
+      color: getColor("vivid-cerulean");
+    }
   }
 }

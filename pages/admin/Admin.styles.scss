@@ -1,0 +1,6 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.AdminPage {
+  padding: viewportSize(20) viewportSize(27) viewportSize(20) viewportSize(30);
+}
