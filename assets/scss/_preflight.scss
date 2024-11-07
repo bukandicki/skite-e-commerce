@@ -11,6 +11,10 @@
     --color-#{$key}: #{extractRGB($value)};
   }
 
+  @include tablet-screen {
+    --base-viewport-width: 768;
+  }
+
   @include desktop-screen {
     --base-viewport-width: 1440;
   }

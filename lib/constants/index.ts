@@ -3,6 +3,8 @@ import type {
   RouteLocationAsRelativeGeneric,
 } from "vue-router";
 
+export const SIDEBAR_STATE_KEY = Symbol() as InjectionKey<Ref<boolean>>;
+
 export const MENUS: Array<{
   title: string;
   href: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
@@ -15,7 +17,7 @@ export const MENUS: Array<{
   },
   {
     title: "Products",
-    href: "/admin/products",
+    href: "/admin/products/create",
     icon: "folder",
   },
   {

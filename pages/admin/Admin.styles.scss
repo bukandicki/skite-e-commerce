@@ -46,7 +46,7 @@
 
   th,
   td {
-    @include fontStyling("Roboto", 13);
+    @include fontStyling("Roboto", 11);
     text-align: left;
 
     &:last-child {
@@ -67,6 +67,13 @@
       position: relative;
       z-index: 1;
       color: getColor("gunmetal");
+    }
+  }
+
+  @include desktop-screen {
+    th,
+    td {
+      @include fontStyling("Roboto", 13);
     }
   }
 }
