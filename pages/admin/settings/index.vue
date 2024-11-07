@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 definePageMeta({
-  name: "AdminSettingPage",
+  name: "AdminSettingsPage",
   layout: "admin",
 });
 </script>
 
 <template>
-  <main class="SettingPage"></main>
+  <main class="SettingsPage"></main>
 </template>
 
 <style lang="scss">
-@use "./Setting.styles.scss" as *;
+@use "./Settings.styles.scss" as *;
 </style>
