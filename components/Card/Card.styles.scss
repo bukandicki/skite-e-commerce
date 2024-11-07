@@ -4,7 +4,7 @@
 .Card {
   background-color: getColor("light");
   border-radius: viewportSize(14);
-  padding: viewportSize(19) viewportSize(28) viewportSize(72);
+  padding: viewportSize(15) viewportSize(8) viewportSize(77);
   box-shadow: 0 viewportSize(4) viewportSize(4) 0 getColor("azureish");
   overflow: hidden;
 
@@ -18,5 +18,9 @@
 
   &__header h2 {
     @include fontStyling("Roboto", 17, 600);
+  }
+
+  @include desktop-screen {
+    padding: viewportSize(19) viewportSize(28) viewportSize(72);
   }
 }
