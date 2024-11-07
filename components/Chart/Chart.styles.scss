@@ -1,0 +1,46 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.Chart {
+  display: flex;
+  justify-content: center;
+  height: viewportSize(225);
+  gap: viewportSize(63);
+  margin-top: viewportSize(65);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__wrapper:hover {
+    > .Chart__bar {
+      background-color: getColor("steel-blue");
+    }
+
+    p:nth-child(1) {
+      transform: translateY(0);
+    }
+  }
+
+  &__bar {
+    width: viewportSize(68);
+    background-color: getColor("pastel-blue");
+    height: viewportSize(200);
+    border-radius: viewportSize(5);
+    z-index: 1;
+    margin: viewportSize(7) 0 viewportSize(11) 0;
+  }
+
+  p {
+    @include fontStyling("Roboto", 13);
+    color: getColor("pastel-blue");
+    text-align: center;
+
+    &:nth-child(1) {
+      transform: translateY(120%);
+      transition: transform 150ms ease-in-out;
+    }
+  }
+}
