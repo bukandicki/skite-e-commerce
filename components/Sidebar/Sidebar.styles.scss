@@ -1,14 +1,19 @@
 @use "~/assets/scss/functions.scss" as *;
 @use "~/assets/scss/mixins.scss" as *;
 
-// viewportSize
-// getColor
-//   @include fontStyling("Roboto", 16, 700);
-
 .Sidebar {
   background-color: getColor("celestial-blue");
   min-height: var(--viewport-height);
-  padding: viewportSize(52) viewportSize(30);
+  padding: viewportSize(24) viewportSize(30);
+  width: viewportSize(310);
+  position: fixed;
+  transform: translateX(-100%);
+  transition: transform 250ms ease-in-out;
+  z-index: 3;
+
+  &--show {
+    transform: translateX(0%);
+  }
 
   &__wrapper {
     position: sticky;
@@ -16,10 +21,30 @@
     left: 0;
   }
 
+  &__close {
+    position: absolute;
+    top: viewportSize(-35);
+    right: viewportSize(-20);
+    transform: translateX(-50%);
+    width: viewportSize(24);
+    aspect-ratio: 1/1;
+    border: solid viewportSize(2) getColor("light");
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: viewportSize(14);
+      aspect-ratio: 1/1;
+      fill: getColor("light");
+    }
+  }
+
   &__brand {
     display: flex;
     align-items: center;
-    margin-bottom: viewportSize(78);
+    margin-bottom: viewportSize(32);
 
     svg {
       width: viewportSize(80);
@@ -35,8 +60,28 @@
 
   &__menu {
     > span {
-      @include fontStyling("Roboto", 24, 700);
+      @include fontStyling("Roboto", 16, 700);
       color: getColor("light");
+    }
+  }
+
+  @include desktop-screen {
+    position: relative;
+    transform: unset;
+    padding: viewportSize(52) viewportSize(30);
+
+    &__brand {
+      margin-bottom: viewportSize(78);
+    }
+
+    &__close {
+      display: none;
+    }
+
+    &__menu {
+      > span {
+        @include fontStyling("Roboto", 24, 700);
+      }
     }
   }
 }
@@ -54,14 +99,14 @@
     border-radius: viewportSize(12);
 
     svg {
-      width: viewportSize(45);
+      width: viewportSize(32);
       aspect-ratio: 1/1;
       margin-right: viewportSize(15);
       fill: getColor("light");
     }
 
     span {
-      @include fontStyling("Roboto", 26);
+      @include fontStyling("Roboto", 18);
       color: getColor("light");
     }
   }
@@ -77,6 +122,16 @@
     span {
       color: getColor("vivid-cerulean");
       font-weight: 700;
+    }
+  }
+
+  @include desktop-screen {
+    &__link svg {
+      width: viewportSize(45);
+    }
+
+    &__link span {
+      @include fontStyling("Roboto", 26);
     }
   }
 }
