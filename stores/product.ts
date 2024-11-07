@@ -49,9 +49,32 @@ export const useProductStore = defineStore("product", () => {
     }
   }
 
+  async function CREATE(
+    payload: Partial<ProductType>
+  ): Promise<APIResponseType<ProductType> | undefined> {
+    try {
+      const data = await $fetch<APIResponseType<ProductType>>(
+        `${baseApi}/product`,
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-Type": "application/json",
+            token: "",
+          },
+        }
+      );
+
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return {
     FETCH_ALL,
     FETCH_DETAIL,
+    CREATE,
     products,
   };
 });
