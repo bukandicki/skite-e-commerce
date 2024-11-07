@@ -23,3 +23,8 @@ export type CategoryType = {
   id: number;
   name: string;
 };
+
+export type UserType = {
+  id: number;
+  name: string;
+};
