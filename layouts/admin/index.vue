@@ -7,7 +7,19 @@ const route = useRoute();
     <LazySidebar />
     <div class="AdminLayout__wrapper">
       <header class="AdminLayout__header">
-        <h1 v-if="route.name === 'AdminPage'">Home</h1>
+        <div class="Header__wrapper">
+          <button class="Header__brand">
+            <LazyIconBrand />
+          </button>
+
+          <h1 class="Header__title" v-if="route.name === 'AdminPage'">Home</h1>
+
+          <div class="Header__user">
+            <LazyIconUser />
+
+            <NuxtLink href="/admin/setting"> Jhon Doe </NuxtLink>
+          </div>
+        </div>
       </header>
 
       <slot />
