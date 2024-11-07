@@ -1,0 +1,26 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.CustomerLayout {
+  width: var(--viewport-width);
+  min-height: var(--viewport-height);
+  background-color: getColor("bubbles");
+  position: relative;
+
+  @include desktop-screen {
+    margin: 0 auto;
+    max-width: viewportSize(375);
+  }
+
+  &__back {
+    position: absolute;
+    left: viewportSize(6);
+    top: viewportSize(32);
+    z-index: 1;
+
+    svg {
+      width: viewportSize(59);
+      aspect-ratio: 1/1;
+    }
+  }
+}
