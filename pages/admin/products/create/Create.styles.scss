@@ -27,7 +27,6 @@
     }
 
     button {
-      width: viewportSize(270);
       border-radius: viewportSize(36);
       display: flex;
       justify-content: center;
@@ -54,6 +53,16 @@
     }
   }
 
+  @include tablet-screen {
+    &__image {
+      button {
+        width: 100%;
+        max-width: viewportSize(335);
+        margin: 0 auto;
+      }
+    }
+  }
+
   @include desktop-screen {
     flex-direction: row;
 
@@ -67,6 +76,7 @@
       background-color: getColor("ghost");
 
       button {
+        width: viewportSize(270);
         margin: viewportSize(38) auto 0;
       }
     }
@@ -142,6 +152,12 @@
     background-color: getColor("celestial-blue");
     box-shadow: 0 viewportSize(4) viewportSize(4) 0
       getColor("celestial-blue", 0.29);
+  }
+
+  @include tablet-screen {
+    button[type="submit"] {
+      bottom: viewportSize(-470);
+    }
   }
 
   @include desktop-screen {
