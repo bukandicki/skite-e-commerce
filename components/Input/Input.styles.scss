@@ -1,0 +1,23 @@
+@use "~/assets/scss/functions.scss" as *;
+@use "~/assets/scss/mixins.scss" as *;
+
+.Input {
+  &__label,
+  &__field {
+    @include fontStyling("Roboto", 20);
+    color: getColor("celestial-blue");
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: viewportSize(11);
+  }
+
+  &__field {
+    width: 100%;
+    height: viewportSize(60);
+    border-radius: viewportSize(10);
+    border: solid viewportSize(1) getColor("celestial-blue");
+    padding: 0 viewportSize(14);
+  }
+}
