@@ -1,16 +1,17 @@
 <script lang="ts" setup>
-defineProps<{ title?: string }>();
+defineProps<{ title?: string; loading?: boolean }>();
 </script>
 
 <template>
-  <div class="Card">
+  <div :class="['Card', { 'Card--loading': loading }]">
     <div class="Card__header">
       <h2 class="Card__title">{{ title }}</h2>
 
       <slot name="option" />
     </div>
 
-    <slot />
+    <h2 class="Card__loading" v-if="loading">Loading..</h2>
+    <slot v-else />
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import type { APIResponseType, ProductType } from "~/lib/types";
+import type { APIResponseType, ProductType, ReportType } from "~/lib/types";
 
 export const useProductStore = defineStore("product", () => {
   const {
@@ -8,6 +8,7 @@ export const useProductStore = defineStore("product", () => {
   const userStore = useUserStore();
 
   const products = useState<Array<ProductType>>("products", () => []);
+  const reports = useState<Array<ReportType>>("reports", () => []);
 
   async function FETCH_ALL(): Promise<
     APIResponseType<ProductType[]> | undefined
@@ -51,6 +52,24 @@ export const useProductStore = defineStore("product", () => {
     }
   }
 
+  async function FETCH_REPORT(): Promise<ReportType[] | undefined> {
+    try {
+      const data = await $fetch<ReportType[]>(`${baseApi}/product/report`, {
+        method: "GET",
+        cache: "force-cache",
+        headers: {
+          token: userStore.token as string,
+        },
+      });
+
+      reports.value = data;
+
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async function CREATE(
     payload: Partial<ProductType>
   ): Promise<APIResponseType<ProductType> | undefined> {
@@ -76,7 +95,9 @@ export const useProductStore = defineStore("product", () => {
   return {
     FETCH_ALL,
     FETCH_DETAIL,
+    FETCH_REPORT,
     CREATE,
     products,
+    reports,
   };
 });

@@ -126,6 +126,11 @@
     background-color: getColor("medium-aquamarine");
   }
 
+  button[type="submit"]:disabled {
+    background-color: getColor("chinese-silver");
+    cursor: not-allowed;
+  }
+
   &__categories label {
     @include fontStyling("Roboto", 20);
     display: block;

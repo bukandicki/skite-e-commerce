@@ -8,33 +8,51 @@ const productStore = useProductStore();
 
 const route = useRoute();
 
-const { data } = await useAsyncData("product_detail", () =>
-  productStore.FETCH_DETAIL(parseInt(route.params.id as string))
+const { data, status, error, refresh } = await useAsyncData(
+  "product_detail",
+  () => productStore.FETCH_DETAIL(parseInt(route.params.id as string))
 );
+
+console.log(data.value, status, error);
 </script>
 
 <template>
   <main class="ProductDetail">
-    <section class="ProductDetail__thumbnail">
-      <NuxtImg
-        :src="data?.image || '/image-placeholder.png'"
-        width="375"
-        height="455"
-        sizes="720px"
-      />
-    </section>
+    <LazyTrouble
+      class="ProductDetail__error-wrapper"
+      v-if="error"
+      type="error"
+      :retry="refresh"
+    />
 
-    <section class="ProductDetail__information">
-      <label class="Product__type">{{ data?.category_id }}</label>
+    <LazyTrouble
+      v-else-if="!data"
+      class="ProductDetail__error-wrapper"
+      type="empty"
+    />
 
-      <h1 class="Product__name">{{ data?.name }}</h1>
+    <template v-else>
+      <section class="ProductDetail__thumbnail">
+        <NuxtImg
+          :src="data?.image || '/image-placeholder.png'"
+          width="375"
+          height="455"
+          sizes="720px"
+        />
+      </section>
 
-      <span class="Product__price">$ {{ data?.price }}/pc</span>
+      <section class="ProductDetail__information">
+        <label class="Product__type">{{ data?.category_id }}</label>
 
-      <p class="Product__description">{{ data?.description }}</p>
+        <h1 class="Product__name">{{ data?.name }}</h1>
 
-      <LazyCounter class="Product__counter" />
-    </section>
+        <span class="Product__price">$ {{ data?.price }}/pc</span>
+
+        <p class="Product__description">{{ data?.description }}</p>
+
+        <LazyCounter class="Product__counter" />
+      </section>
+    </template>
   </main>
 </template>
 

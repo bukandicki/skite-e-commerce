@@ -82,7 +82,7 @@ await useAsyncData("products", () => productStore.FETCH_ALL());
           <NuxtLink :href="`/products/${product.id}`">
             <LazyProjectCard
               :img="product.image || '/image-placeholder.png'"
-              :label="product.category_id"
+              :label="product.category_id as string"
               :title="product.name"
               :subtitle="`$ ${product.price}/pc`"
             />

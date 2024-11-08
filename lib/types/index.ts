@@ -10,7 +10,7 @@ export type ProductType = {
   description: string;
   sku: string;
   stock: number;
-  category_id: string;
+  category_id: string | number;
   price: number;
   user_id: number;
   image: string;
@@ -27,4 +27,10 @@ export type CategoryType = {
 export type UserType = {
   id: number;
   name: string;
+};
+
+export type ReportType = {
+  created_at: string;
+  total: number;
+  income: string;
 };
