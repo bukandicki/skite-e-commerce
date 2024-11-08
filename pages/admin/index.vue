@@ -11,8 +11,12 @@ const selected_selling_range = ref<string | undefined>(undefined);
 
 const productStore = useProductStore();
 
-await useAsyncData("products", () => productStore.FETCH_ALL());
-await useAsyncData("reports", () => productStore.FETCH_REPORT());
+const { status: products_status } = await useAsyncData("products", () =>
+  productStore.FETCH_ALL()
+);
+const { status: report_status } = await useAsyncData("reports", () =>
+  productStore.FETCH_REPORT()
+);
 
 const data = computed(() => {
   return {
@@ -25,7 +29,7 @@ const data = computed(() => {
 <template>
   <main class="AdminPage">
     <section class="AdminPage__sold">
-      <LazyCard title="Product Sold">
+      <LazyCard title="Product Sold" :loading="report_status === 'pending'">
         <template #option>
           <LazySelect
             @change="selected_sold_range = $event"
@@ -39,7 +43,10 @@ const data = computed(() => {
     </section>
 
     <section class="AdminPage__selling">
-      <LazyCard title="Top selling product">
+      <LazyCard
+        title="Top selling product"
+        :loading="products_status === 'pending'"
+      >
         <template #option>
           <LazySelect
             @change="selected_selling_range = $event"

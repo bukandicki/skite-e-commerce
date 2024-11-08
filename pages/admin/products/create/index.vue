@@ -13,6 +13,7 @@ const selectedImage = ref<string>("");
 const formElement = ref<HTMLFormElement | null>(null);
 const fileElement = ref<HTMLInputElement | null>(null);
 const selectedCategory = ref<number | null>(null);
+const emptyFields = ref<Set<string>>(new Set());
 const payload = ref<Partial<ProductType>>({});
 
 await useAsyncData("categories", () => categoryStore.FETCH_ALL());
@@ -64,6 +65,13 @@ const handleCreateProduct = (e: Event) => {
 
   const fd = new FormData(el);
 
+  fd.entries().forEach(([key, value]) => {
+    if (value === "") emptyFields.value.add(key);
+    else emptyFields.value.delete(key);
+  });
+
+  if (emptyFields.value.size) return;
+
   payload.value = {
     name: fd.get("name") as string,
     description: fd.get("description") as string,
@@ -84,12 +92,31 @@ const handleCreateProduct = (e: Event) => {
       <h2>Add New Product</h2>
 
       <form ref="formElement" class="ProductForm" @submit="handleCreateProduct">
-        <LazyInput type="text" label="Product Name" name="name" />
-        <LazyTextarea label="Description" name="description" />
+        <LazyInput
+          :error="emptyFields.has('name')"
+          type="text"
+          label="Product Name"
+          name="name"
+        />
+        <LazyTextarea
+          :error="emptyFields.has('description')"
+          label="Description"
+          name="description"
+        />
 
         <div class="ProductForm__group">
-          <LazyInput type="text" label="SKU" name="sku" />
-          <LazyInput type="number" label="Stock" name="stock" />
+          <LazyInput
+            :error="emptyFields.has('sku')"
+            type="text"
+            label="SKU"
+            name="sku"
+          />
+          <LazyInput
+            :error="emptyFields.has('stock')"
+            type="number"
+            label="Stock"
+            name="stock"
+          />
         </div>
 
         <div class="ProductForm__categories">
@@ -109,7 +136,12 @@ const handleCreateProduct = (e: Event) => {
         </div>
 
         <div class="ProductForm__group">
-          <LazyInput type="number" label="Price" name="price" />
+          <LazyInput
+            :error="emptyFields.has('price')"
+            type="number"
+            label="Price"
+            name="price"
+          />
 
           <button type="submit" :disabled="status === 'pending'">
             {{ status === "pending" ? "Publishing..." : "Publish" }}
