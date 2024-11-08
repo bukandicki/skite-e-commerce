@@ -20,7 +20,18 @@
     @include fontStyling("Roboto", 17, 600);
   }
 
+  &__loading {
+    @include fontStyling("Roboto", 20, 600);
+    text-align: center;
+    padding: viewportSize(32) 0;
+    color: getColor("azureish");
+  }
+
   @include desktop-screen {
     padding: viewportSize(19) viewportSize(28) viewportSize(72);
   }
+}
+
+.Card--loading {
+  padding-bottom: 0;
 }
