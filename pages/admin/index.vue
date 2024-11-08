@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { FAKE_SOLDS, PERIOD_RANGES } from "~/lib/constants";
+import { PERIOD_RANGES } from "~/lib/constants";
 
 definePageMeta({
   name: "AdminPage",
@@ -8,6 +8,17 @@ definePageMeta({
 
 const selected_sold_range = ref<string | undefined>(undefined);
 const selected_selling_range = ref<string | undefined>(undefined);
+
+const productStore = useProductStore();
+
+await useAsyncData("reports", () => productStore.FETCH_REPORT());
+
+const data = computed(() => {
+  return {
+    labels: productStore.reports.map((report) => report.created_at),
+    values: productStore.reports.map((report) => report.total),
+  };
+});
 </script>
 
 <template>
@@ -22,10 +33,7 @@ const selected_selling_range = ref<string | undefined>(undefined);
           />
         </template>
 
-        <LazyChart
-          :labels="FAKE_SOLDS.map((d) => d.created_at)"
-          :data="FAKE_SOLDS.map((d) => d.total)"
-        />
+        <LazyChart :labels="data.labels" :data="data.values" />
       </LazyCard>
     </section>
 
