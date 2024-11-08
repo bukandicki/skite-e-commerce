@@ -194,3 +194,9 @@
     }
   }
 }
+
+.ProductForm__categories--error {
+  label {
+    color: getColor("pastel-red");
+  }
+}

@@ -4,7 +4,7 @@ import { SIDEBAR_STATE_KEY } from "~/lib/constants";
 const route = useRoute();
 const userStore = useUserStore();
 
-const state = ref<boolean>(false);
+const state = useState<boolean>("toggle_state", () => false);
 
 provide(SIDEBAR_STATE_KEY, state);
 
@@ -19,6 +19,7 @@ const handleResetState = () => {
 onMounted(() => {
   window.addEventListener("resize", handleResetState);
 });
+
 onBeforeUnmount(() => {
   window.removeEventListener("resize", handleResetState);
 });

@@ -1,6 +1,6 @@
 import type { APIResponseType, UserType } from "~/lib/types";
 
-export const useUserStore = defineStore("user", () => {
+export const useUserStore = defineStore("user_store", () => {
   const {
     public: { baseApi },
   } = useRuntimeConfig();
