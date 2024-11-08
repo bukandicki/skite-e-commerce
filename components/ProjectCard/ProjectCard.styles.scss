@@ -55,6 +55,10 @@
     strong {
       @include fontStyling("Roboto", 23, 700);
       letter-spacing: viewportSize(2);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     p {

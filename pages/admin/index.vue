@@ -11,9 +11,11 @@ const selected_selling_range = ref<string | undefined>(undefined);
 
 const productStore = useProductStore();
 
-const { status: products_status } = await useAsyncData("products", () =>
-  productStore.FETCH_ALL()
-);
+const {
+  status: products_status,
+  error: product_error,
+  refresh: product_refresh,
+} = await useAsyncData("products", () => productStore.FETCH_ALL());
 const { status: report_status } = await useAsyncData("reports", () =>
   productStore.FETCH_REPORT()
 );
@@ -55,7 +57,20 @@ const data = computed(() => {
           />
         </template>
 
-        <table class="Selling__table">
+        <div
+          v-if="product_error || !productStore.products.length"
+          class="Selling__nodata"
+        >
+          <h1>
+            {{ product_error ? "Oops something went wrong!" : "No data!" }}
+          </h1>
+
+          <button v-if="product_error" @click="() => product_refresh()">
+            Retry
+          </button>
+        </div>
+
+        <table v-else class="Selling__table">
           <thead>
             <tr>
               <th>Name</th>

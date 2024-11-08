@@ -8,33 +8,51 @@ const productStore = useProductStore();
 
 const route = useRoute();
 
-const { data } = await useAsyncData("product_detail", () =>
-  productStore.FETCH_DETAIL(parseInt(route.params.id as string))
+const { data, status, error, refresh } = await useAsyncData(
+  "product_detail",
+  () => productStore.FETCH_DETAIL(parseInt(route.params.id as string))
 );
+
+console.log(data.value, status, error);
 </script>
 
 <template>
   <main class="ProductDetail">
-    <section class="ProductDetail__thumbnail">
-      <NuxtImg
-        :src="data?.image || '/image-placeholder.png'"
-        width="375"
-        height="455"
-        sizes="720px"
-      />
-    </section>
+    <template v-if="error">
+      <div class="ProductDetail__trouble">
+        <h1>Oops something went wrong!</h1>
+        <button @click="() => refresh()">Retry</button>
+      </div>
+    </template>
 
-    <section class="ProductDetail__information">
-      <label class="Product__type">{{ data?.category_id }}</label>
+    <template v-else-if="status === 'success' && !data">
+      <div class="ProductDetail__trouble">
+        <h1>Product not found!</h1>
+      </div>
+    </template>
 
-      <h1 class="Product__name">{{ data?.name }}</h1>
+    <template v-else>
+      <section class="ProductDetail__thumbnail">
+        <NuxtImg
+          :src="data?.image || '/image-placeholder.png'"
+          width="375"
+          height="455"
+          sizes="720px"
+        />
+      </section>
 
-      <span class="Product__price">$ {{ data?.price }}/pc</span>
+      <section class="ProductDetail__information">
+        <label class="Product__type">{{ data?.category_id }}</label>
 
-      <p class="Product__description">{{ data?.description }}</p>
+        <h1 class="Product__name">{{ data?.name }}</h1>
 
-      <LazyCounter class="Product__counter" />
-    </section>
+        <span class="Product__price">$ {{ data?.price }}/pc</span>
+
+        <p class="Product__description">{{ data?.description }}</p>
+
+        <LazyCounter class="Product__counter" />
+      </section>
+    </template>
   </main>
 </template>
 
