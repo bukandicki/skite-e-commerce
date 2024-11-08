@@ -2,27 +2,13 @@
 @use "~/assets/scss/mixins.scss" as *;
 
 .ProductDetail {
-  &__trouble {
+  &__error-wrapper {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
-    h1 {
-      @include fontStyling("Roboto", 20, 700);
-      color: getColor("old-silver");
-    }
-
-    button {
-      @include fontStyling("Roboto", 14, 700);
-      color: getColor("light");
-      padding: viewportSize(8) viewportSize(12);
-      border-radius: viewportSize(12);
-      margin-top: viewportSize(12);
-      background-color: getColor("celestial-blue");
-    }
   }
 
   &__thumbnail {

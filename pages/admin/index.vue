@@ -16,9 +16,11 @@ const {
   error: product_error,
   refresh: product_refresh,
 } = await useAsyncData("products", () => productStore.FETCH_ALL());
-const { status: report_status } = await useAsyncData("reports", () =>
-  productStore.FETCH_REPORT()
-);
+const {
+  status: report_status,
+  error: report_error,
+  refresh: report_refresh,
+} = await useAsyncData("reports", () => productStore.FETCH_REPORT());
 
 const data = computed(() => {
   return {
@@ -40,7 +42,11 @@ const data = computed(() => {
           />
         </template>
 
-        <LazyChart :labels="data.labels" :data="data.values" />
+        <LazyTrouble v-if="report_error" type="error" :retry="report_refresh" />
+
+        <LazyTrouble v-if="!productStore.reports.length" type="empty" />
+
+        <LazyChart v-else :labels="data.labels" :data="data.values" />
       </LazyCard>
     </section>
 
@@ -57,18 +63,13 @@ const data = computed(() => {
           />
         </template>
 
-        <div
-          v-if="product_error || !productStore.products.length"
-          class="Selling__nodata"
-        >
-          <h1>
-            {{ product_error ? "Oops something went wrong!" : "No data!" }}
-          </h1>
+        <LazyTrouble
+          v-if="product_error"
+          type="error"
+          :retry="product_refresh"
+        />
 
-          <button v-if="product_error" @click="() => product_refresh()">
-            Retry
-          </button>
-        </div>
+        <LazyTrouble v-else-if="!productStore.products.length" type="empty" />
 
         <table v-else class="Selling__table">
           <thead>

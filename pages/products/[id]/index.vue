@@ -18,18 +18,18 @@ console.log(data.value, status, error);
 
 <template>
   <main class="ProductDetail">
-    <template v-if="error">
-      <div class="ProductDetail__trouble">
-        <h1>Oops something went wrong!</h1>
-        <button @click="() => refresh()">Retry</button>
-      </div>
-    </template>
+    <LazyTrouble
+      class="ProductDetail__error-wrapper"
+      v-if="error"
+      type="error"
+      :retry="refresh"
+    />
 
-    <template v-else-if="status === 'success' && !data">
-      <div class="ProductDetail__trouble">
-        <h1>Product not found!</h1>
-      </div>
-    </template>
+    <LazyTrouble
+      v-else-if="!data"
+      class="ProductDetail__error-wrapper"
+      type="empty"
+    />
 
     <template v-else>
       <section class="ProductDetail__thumbnail">

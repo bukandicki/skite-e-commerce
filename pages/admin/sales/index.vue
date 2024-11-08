@@ -10,7 +10,10 @@ const selected_sold_range = ref<string | undefined>(undefined);
 
 const productStore = useProductStore();
 
-await useAsyncData("reports", () => productStore.FETCH_REPORT());
+const { error: report_error, refresh: report_refresh } = await useAsyncData(
+  "reports",
+  () => productStore.FETCH_REPORT()
+);
 
 const data = computed(() => {
   return {
@@ -31,6 +34,10 @@ const data = computed(() => {
         />
       </template>
 
+      <LazyTrouble v-if="report_error" type="error" :retry="report_refresh" />
+
+      <LazyTrouble v-if="!productStore.reports.length" type="empty" />
+
       <LazyChart :labels="data.labels" :data="data.values" />
     </LazyCard>
 
@@ -42,6 +49,10 @@ const data = computed(() => {
           :value="selected_sold_range"
         />
       </template>
+
+      <LazyTrouble v-if="report_error" type="error" :retry="report_refresh" />
+
+      <LazyTrouble v-if="!productStore.reports.length" type="empty" />
 
       <LazyChart :labels="data.labels" :data="data.values" />
     </LazyCard>
