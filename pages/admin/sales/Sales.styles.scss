@@ -1,0 +1,8 @@
+@use "~/assets/scss/functions.scss" as *;
+
+.SalesPage {
+  display: flex;
+  flex-direction: column;
+  gap: viewportSize(32);
+  padding: viewportSize(20) viewportSize(27) viewportSize(20) viewportSize(30);
+}

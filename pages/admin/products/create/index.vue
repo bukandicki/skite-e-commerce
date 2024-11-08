@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { FAKE_CATEGORY_RESPONSE } from "~/lib/constants";
 import type { ProductType } from "~/lib/types";
 
 definePageMeta({

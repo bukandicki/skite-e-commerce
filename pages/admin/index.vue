@@ -11,6 +11,7 @@ const selected_selling_range = ref<string | undefined>(undefined);
 
 const productStore = useProductStore();
 
+await useAsyncData("products", () => productStore.FETCH_ALL());
 await useAsyncData("reports", () => productStore.FETCH_REPORT());
 
 const data = computed(() => {
@@ -56,12 +57,12 @@ const data = computed(() => {
           </thead>
 
           <tbody>
-            <tr v-for="i in 3" :key="i">
+            <tr v-for="product in productStore.products" :key="product.id">
               <td>
-                <span>Item A</span>
+                <span>{{ product.name }}</span>
               </td>
               <td>
-                <span>$ 120.00</span>
+                <span>$ {{ product.price }}</span>
               </td>
             </tr>
           </tbody>
