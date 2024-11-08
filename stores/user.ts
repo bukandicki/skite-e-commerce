@@ -26,8 +26,6 @@ export const useUserStore = defineStore("user_store", () => {
 
       token.value = data.response;
 
-      await FETCH_INFO();
-
       return data;
     } catch (error) {
       console.error(error);
