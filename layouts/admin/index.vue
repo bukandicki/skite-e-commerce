@@ -2,6 +2,7 @@
 import { SIDEBAR_STATE_KEY } from "~/lib/constants";
 
 const route = useRoute();
+const userStore = useUserStore();
 
 const state = ref<boolean>(false);
 
@@ -38,7 +39,9 @@ onBeforeUnmount(() => {
           <div class="Header__user">
             <LazyIconUser />
 
-            <NuxtLink href="/admin/settings"> Jhon Doe </NuxtLink>
+            <NuxtLink href="/admin/settings">
+              {{ userStore.user?.name }}
+            </NuxtLink>
           </div>
         </div>
       </header>
