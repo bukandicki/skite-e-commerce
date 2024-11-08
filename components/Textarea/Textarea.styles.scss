@@ -18,8 +18,17 @@
     height: viewportSize(60);
     border-radius: viewportSize(10);
     border: solid viewportSize(1) getColor("celestial-blue");
-    padding: 0 viewportSize(14);
+    padding: viewportSize(14);
     resize: vertical;
     height: viewportSize(125);
+  }
+}
+
+.Textarea--error {
+  .Textarea__label {
+    color: getColor("pastel-red");
+  }
+  .Textarea__field {
+    border-color: getColor("pastel-red");
   }
 }

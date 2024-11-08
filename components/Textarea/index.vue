@@ -2,6 +2,7 @@
 defineProps<{
   label?: string;
   value?: any;
+  error?: boolean;
   name: string;
 }>();
 
@@ -15,7 +16,7 @@ const handleChange = (e: Event) => {
 </script>
 
 <template>
-  <div class="Textarea">
+  <div :class="['Textarea', { 'Textarea--error': error }]">
     <label class="Textarea__label" :for="name">{{ label }}</label>
 
     <textarea
