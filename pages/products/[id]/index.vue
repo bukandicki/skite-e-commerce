@@ -12,8 +12,6 @@ const { data, status, error, refresh } = await useAsyncData(
   "product_detail",
   () => productStore.FETCH_DETAIL(parseInt(route.params.id as string))
 );
-
-console.log(data.value, status, error);
 </script>
 
 <template>

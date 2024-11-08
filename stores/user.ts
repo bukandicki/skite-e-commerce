@@ -48,7 +48,6 @@ export const useUserStore = defineStore("user_store", () => {
       );
 
       user.value = data.response;
-      console.log(user.value, token.value, data);
 
       return data;
     } catch (error) {
