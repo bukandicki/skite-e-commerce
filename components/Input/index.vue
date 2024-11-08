@@ -4,6 +4,7 @@ import type { InputTypeHTMLAttribute } from "vue";
 const props = defineProps<{
   label?: string;
   value?: any;
+  error?: boolean;
   type?: InputTypeHTMLAttribute;
   name: string;
 }>();
@@ -26,7 +27,7 @@ const handleInput = (e: Event) => {
 </script>
 
 <template>
-  <div class="Input">
+  <div :class="['Input', { 'Input--error': error }]">
     <label class="Input__label" :for="name">{{ label }}</label>
 
     <input

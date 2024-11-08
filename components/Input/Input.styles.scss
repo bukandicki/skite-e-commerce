@@ -21,3 +21,12 @@
     padding: 0 viewportSize(14);
   }
 }
+
+.Input--error {
+  .Input__label {
+    color: getColor("pastel-red");
+  }
+  .Input__field {
+    border-color: getColor("pastel-red");
+  }
+}
