@@ -1,6 +1,6 @@
 import type { APIResponseType, UserType } from "~/lib/types";
 
-export const useUserStore = defineStore("user", () => {
+export const useUserStore = defineStore("user_store", () => {
   const {
     public: { baseApi },
   } = useRuntimeConfig();
@@ -48,6 +48,7 @@ export const useUserStore = defineStore("user", () => {
       );
 
       user.value = data.response;
+      console.log(user.value, token.value, data);
 
       return data;
     } catch (error) {

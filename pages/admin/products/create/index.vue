@@ -65,6 +65,8 @@ const handleCreateProduct = (e: Event) => {
 
   const fd = new FormData(el);
 
+  if (selectedCategory.value === null) emptyFields.value.add("category_id");
+
   fd.entries().forEach(([key, value]) => {
     if (value === "") emptyFields.value.add(key);
     else emptyFields.value.delete(key);
@@ -119,7 +121,14 @@ const handleCreateProduct = (e: Event) => {
           />
         </div>
 
-        <div class="ProductForm__categories">
+        <div
+          :class="[
+            'ProductForm__categories',
+            {
+              'ProductForm__categories--error': emptyFields.has('category_id'),
+            },
+          ]"
+        >
           <label>Category</label>
 
           <div>
